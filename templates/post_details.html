@@ -2,6 +2,8 @@
 
 {% load crispy_forms_tags %}
 
+{% load social_share %}
+
 <div class="banner">
     <div class="container">
         <div class="row g-0">
@@ -115,6 +117,8 @@
             </div>
         </div>
     </div>
+    {% post_to_facebook object_or_url "Post to Facebook!" %}
+    {% post_to_twitter "New Song: {{object.title}}. Check it out!" object_or_url "Post to Twitter" %}
 </div>
 
 {% endblock content %}
