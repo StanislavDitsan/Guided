@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'django_social_share',
     'crispy_forms',
+    'active_link',
     'blog',
 ]
 
