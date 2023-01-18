@@ -5,6 +5,14 @@ from .forms import CommentForm
 from django.http import HttpResponseRedirect
 
 
+def about(request):
+    return render(request, 'about.html', {})
+
+
+def contact(request):
+    return render(request, 'contact.html', {})
+
+
 class PostList(generic.ListView):
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
