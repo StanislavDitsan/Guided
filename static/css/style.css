@@ -1,0 +1,13 @@
+/*------------ Nav-bar */
+
+.navbar-nav-right {
+    float: right;
+}
+
+/*------------ Media queries */
+
+@media (max-width: 769px) {
+    .navbar-nav-right {
+        float: none;
+    }
+}
