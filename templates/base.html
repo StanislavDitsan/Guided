@@ -50,8 +50,7 @@
                         <a class="nav-link {% active_link 'about' %}" href="{% url 'about' %}">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% active_link 'contact' %}" 
-                            href="{% url 'contact' %}">Contact</a>
+                        <a class="nav-link {% active_link 'contact' %}" href="{% url 'contact' %}">Contact</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav mb-2 mb-lg-0 navbar-nav-right">
@@ -66,8 +65,7 @@
                             href="{% url 'account_signup' %}">Register</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% active_link 'account_login' %}"
-                            href="{% url 'account_login' %}">Login</a>
+                        <a class="nav-link {% active_link 'account_login' %}" href="{% url 'account_login' %}">Login</a>
                     </li>
                     {% endif %}
                 </ul>
@@ -120,6 +118,7 @@
         </div>
         <!-- Copyright -->
     </footer>
+    <script src="{% static 'js/script.js' %}"></script>
 </body>
 
 </html>
