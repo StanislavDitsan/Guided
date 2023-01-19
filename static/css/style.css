@@ -111,6 +111,12 @@
     transition: all 0.3s ease-in-out;
 }
 
+/* Add hover effect to pagination buttons */
+.pagination a:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
 /*------------ Media queries */
 
 @media (max-width: 769px) {
