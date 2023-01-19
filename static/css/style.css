@@ -86,6 +86,16 @@
     text-align: center;
 }
 
+/* Style the author and date text */
+.author,
+.text-muted {
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
 /*------------ Media queries */
 
 @media (max-width: 769px) {
