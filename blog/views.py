@@ -13,6 +13,14 @@ def contact(request):
     return render(request, 'contact.html', {})
 
 
+def blog(request):
+    return render(request, 'blog.html', {})
+
+
+def home(request):
+    return render(request, 'home.html', {})
+
+
 class PostList(generic.ListView):
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')

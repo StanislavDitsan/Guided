@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 mt-4 mb-3">
+            <div class="text-center">
+                <h1>Travel, Eat, Repeat!</h1>
+                <p>This food and travel blog will inspire you to pack your bags and explore the world. From exotic
+                    destinations to hidden culinary treasures, we'll take you on a journey you won't forget. Join us and
+                    discover the world one delicious bite at a time.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<header>
+    <!-- Carousel with slides -->
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active carousel-bg-1">
+                <div class="carousel-caption">
+                    <h5>Lao Tzu</h5>
+                    <p>"The journey of a thousand miles begins with a single step."</p>
+                </div>
+            </div>
+            <div class="carousel-item carousel-bg-2">
+                <div class="carousel-caption">
+                    <h5>J.R.R. Tolkien</h5>
+                    <p>"Not all those who wander are lost."</p>
+                </div>
+            </div>
+            <div class="carousel-item carousel-bg-3">
+                <div class="carousel-caption">
+                    <h5>Saint Augustine</h5>
+                    <p>"The world is a book, and those who do not travel read only a page."</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</header>
+
+<!-- Automated typing -->
+<section class="py-5">
+    <div class="container box-container">
+        <p class="type-script">Welcome {{ request.user.username }} to Guided Blog! Plan ahead and research your
+            destination to make the most of your trip. Don't forget to pack essentials like sunscreen, comfortable
+            shoes, and a reusable water bottle. Consider traveling during off-peak seasons to save money and avoid
+            crowds. And always make sure to have travel insurance.</p>
+    </div>
+</section>
+
+
+{% endblock %}
