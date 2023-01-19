@@ -117,6 +117,12 @@
     color: #ffffff;
 }
 
+/* Add hover effect to post links */
+.post-link:hover {
+    text-decoration: none;
+    color: #534d4d;
+}
+
 /*------------ Media queries */
 
 @media (max-width: 769px) {
