@@ -79,6 +79,13 @@
     margin-bottom: 20px;
 }
 
+/* Style the post link */
+.post-link {
+    text-decoration: none;
+    color: #000000;
+    text-align: center;
+}
+
 /*------------ Media queries */
 
 @media (max-width: 769px) {
