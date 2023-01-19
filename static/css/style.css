@@ -62,7 +62,14 @@
     object-fit: cover;
 }
 
-
+/* Style the card title */
+.card-title {
+    font-size: 22px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
 
 /*------------ Media queries */
 
