@@ -96,6 +96,11 @@
     text-align: center;
 }
 
+/* Style the heart icon */
+.fa-heart {
+    color: #ff0000;
+}
+
 /*------------ Media queries */
 
 @media (max-width: 769px) {
