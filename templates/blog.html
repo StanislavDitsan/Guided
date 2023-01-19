@@ -2,15 +2,21 @@
 
 {% block content %}
 
-<!-- Automated typing -->
-<section class="py-5">
-    <div class="container box-container">
-      <p class="type-script">Welcome {{ request.user.username }} to Guided Blog! Plan ahead and research your destination to make the most of your trip. Don't forget to pack essentials like sunscreen, comfortable shoes, and a reusable water bottle. Consider traveling during off-peak seasons to save money and avoid crowds. And always make sure to have travel insurance.</p>
+<div class="container">
+    <div class="row">
+        <div class="col-12 mt-4 mb-3">
+            <div class="text-center">
+                <h1>Travel, Eat, Repeat!</h1>
+                <p>This food and travel blog will inspire you to pack your bags and explore the world. From exotic
+                    destinations to hidden culinary treasures, we'll take you on a journey you won't forget. Join us and
+                    discover the world one delicious bite at a time.</p>
+            </div>
+        </div>
     </div>
-  </section>
+</div>
 
 <header>
-<!-- Carousel with slides -->
+    <!-- Carousel with slides -->
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
@@ -53,6 +59,16 @@
     </div>
 </header>
 
+<!-- Automated typing -->
+<section class="py-5">
+    <div class="container box-container">
+        <p class="type-script">Welcome {{ request.user.username }} to Guided Blog! Plan ahead and research your
+            destination to make the most of your trip. Don't forget to pack essentials like sunscreen, comfortable
+            shoes, and a reusable water bottle. Consider traveling during off-peak seasons to save money and avoid
+            crowds. And always make sure to have travel insurance.</p>
+    </div>
+</section>
+
 <div class="container-fluid">
     <div class="row">
 
@@ -85,7 +101,7 @@
                         </div>
                     </div>
                 </div>
-                {% if forloop.counter|divisibleby:4 %}
+                {% if forloop.counter|divisibleby:3 %}
             </div>
             <div class="row">
                 {% endif %}
