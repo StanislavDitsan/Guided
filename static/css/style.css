@@ -101,6 +101,16 @@
     color: #ff0000;
 }
 
+/* Style the pagination buttons */
+.pagination a {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
 /*------------ Media queries */
 
 @media (max-width: 769px) {
