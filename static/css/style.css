@@ -53,6 +53,7 @@
     box-shadow: 0px 0px 5px #cccccc;
     border-radius: 10px;
     overflow: hidden;
+    transition: all 0.5s ease-in-out;
 }
 
 /* Style the card image */
@@ -121,6 +122,12 @@
 .post-link:hover {
     text-decoration: none;
     color: #534d4d;
+}
+
+/* Add hover effect to card */
+.card:hover {
+    transform: scale(1.01);
+    box-shadow: 0px 0px 15px #cccccc;
 }
 
 /*------------ Media queries */
