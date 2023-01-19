@@ -71,6 +71,14 @@
     margin-bottom: 15px;
 }
 
+/* Style the card text */
+.card-text {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #777777;
+    margin-bottom: 20px;
+}
+
 /*------------ Media queries */
 
 @media (max-width: 769px) {
