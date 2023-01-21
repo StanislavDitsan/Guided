@@ -140,6 +140,22 @@
     transition: all 0.5s ease-in-out;
 }
 
+/* ----------------Recent blog posts on home page */
+
+.post-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.recent-post {
+    flex: 0 0 auto;
+    margin-right: 0.3rem;
+    margin-right: 0.3rem;
+}
+
 /*------------ Media queries */
 
 @media (max-width: 769px) {
