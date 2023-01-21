@@ -21,6 +21,11 @@ def home(request):
     return render(request, 'home.html', {})
 
 
+def home(request):
+    recent_posts = Post.objects.filter(status=1).order_by('-created_on')[:3]
+    return render(request, 'home.html', {'recent_posts': recent_posts})
+
+
 class PostList(generic.ListView):
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
