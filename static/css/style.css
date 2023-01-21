@@ -163,3 +163,14 @@
         float: none;
     }
 }
+
+@media only screen and (max-width: 600px) {
+    .recent-post {
+        flex-basis: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .card {
+        width: 100%;
+    }
+}
