@@ -69,5 +69,25 @@
     </div>
 </section>
 
+<div class="container-fluid recent-posts blog-container">
+    <div class="text-center mb-3">
+        <h2>Recent Posts</h2>
+      </div>
+    <div class="post-row">
+      {% for post in recent_posts %}
+        <div class="recent-post card mb-3">
+          <img class="card-img-top" src="{{ post.featured_image.url }}" alt="blog post image">
+          <div class="card-body">
+            <h3 class="card-title text-center">
+              <a href="{% url 'post_detail' post.slug %}" class="post-link">{{ post.title }}</a>
+            </h3>
+            <div class="author text-muted">
+              by {{ post.author }}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
 
 {% endblock %}
