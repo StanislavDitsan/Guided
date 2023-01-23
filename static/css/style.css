@@ -1,3 +1,8 @@
+/*------------ Fonts */
+h1 {
+    font-family: 'Nunito Sans', sans-serif;
+}
+
 /*------------ Nav-bar */
 
 .navbar-nav-right {
