@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
+from django.views.generic import CreateView
 from .models import Post
-from .forms import CommentForm
+from .forms import CommentForm, PostForm
 from django.http import HttpResponseRedirect
 
 
@@ -24,6 +25,12 @@ def home(request):
 def home(request):
     recent_posts = Post.objects.filter(status=1).order_by('-created_on')[:3]
     return render(request, 'home.html', {'recent_posts': recent_posts})
+
+
+class AddPostView(CreateView):
+    model = Post
+    template_name = 'add_post.html'
+    fields = '__all__'
 
 
 class PostList(generic.ListView):
