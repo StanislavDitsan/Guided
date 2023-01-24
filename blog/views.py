@@ -33,6 +33,17 @@ class AddPostView(CreateView):
     fields = '__all__'
 
 
+def add_post(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save()
+            return redirect('post_detail', post.id)
+    else:
+        form = PostForm()
+    return render(request, 'add_post.html', {'form': form})
+
+
 class PostList(generic.ListView):
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
