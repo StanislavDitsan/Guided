@@ -14,3 +14,7 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = '__all__'
+
+
+class ImageUploadForm(forms.Form):
+    image = forms.ImageField()
