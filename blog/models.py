@@ -17,6 +17,9 @@ class Post(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
+    category = models.CharField(max_length=200,
+                                default='unsorted',
+                                unique=True)
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(User,
                                    related_name='blogpost_like',
@@ -50,3 +53,13 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment {self.body} by {self.name}"
+
+
+class Category(models.Model):
+    name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('blog')
