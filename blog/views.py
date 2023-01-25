@@ -4,6 +4,7 @@ from django.views.generic import CreateView, UpdateView, DeleteView
 from .models import Post
 from .forms import CommentForm, PostForm
 from django.http import HttpResponseRedirect
+from django.urls import reverse_lazy
 
 
 def about(request):
@@ -53,6 +54,7 @@ class UpdatePostView(UpdateView):
 class DeletePostView(DeleteView):
     model = Post
     template_name = 'delete_post.html'
+    success_url = reverse_lazy('blog')
 
 
 class PostList(generic.ListView):
