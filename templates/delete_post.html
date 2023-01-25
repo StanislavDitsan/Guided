@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %} Delete Blog Post {% endblock %}
+
+{% block content %}
+
+
+<br>
+<div class="container">
+    <h1>Delete Blog Post</h1>
+    <h2>Delete: {{ post.title }}</h2>
+</div>
+
+<!--Container Update Blog Post-->
+<br>
+<div class="container p-3 mb-3 ">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% for field in form %}
+
+        <button class="btn btn-outline-dark mb-5 mt-4" type="submit">Delete</button>
+    </form>
+</div>
+
+
+
+
+
+
+{% endblock %}
