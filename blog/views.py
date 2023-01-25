@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
-from django.views.generic import CreateView
+from django.views.generic import CreateView, UpdateView
 from .models import Post
 from .forms import CommentForm, PostForm
 from django.http import HttpResponseRedirect
@@ -42,6 +42,12 @@ def add_post(request):
     else:
         form = PostForm()
     return render(request, 'add_post.html', {'form': form})
+
+
+class UpdatePostView(UpdateView):
+    model = Post
+    template_name = 'update_post.html'
+    fields = '__all__'
 
 
 class PostList(generic.ListView):
