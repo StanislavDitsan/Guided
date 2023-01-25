@@ -125,8 +125,10 @@
 <!--Button for super user only-->
 <div class="editbtn text-dark text-center">
     {% if request.user.is_superuser %}
-    <a class="btn btn-outline-dark mb-5 mt-4" href="{% url 'update_post' post.pk %}"><i class="fas fa-edit"></i>Edit Blog</a>
-    <a class="btn btn-outline-dark mb-5 mt-4" href="{% url 'delete_post' post.pk %}">Delete Blog <i class="fas fa-trash-alt"></i></a>
+    <a class="btn btn-outline-dark mb-5 mt-4" href="{% url 'update_post' post.pk %}"><i class="fas fa-edit"></i>Edit
+        Blog</a>
+    <a class="btn btn-outline-dark mb-5 mt-4" href="{% url 'delete_post' post.pk %}">Delete Blog <i
+            class="fas fa-trash-alt"></i></a>
     {% endif %}
 </div>
 
