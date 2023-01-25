@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
-from django.views.generic import CreateView, UpdateView
+from django.views.generic import CreateView, UpdateView, DeleteView
 from .models import Post
 from .forms import CommentForm, PostForm
 from django.http import HttpResponseRedirect
@@ -48,6 +48,11 @@ class UpdatePostView(UpdateView):
     model = Post
     template_name = 'update_post.html'
     fields = '__all__'
+
+
+class DeletePostView(DeleteView):
+    model = Post
+    template_name = 'delete_post.html'
 
 
 class PostList(generic.ListView):
