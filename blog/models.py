@@ -17,9 +17,7 @@ class Post(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
-    category = models.CharField(max_length=200,
-                                default='unsorted',
-                                unique=True)
+    category = models.CharField(max_length=255, default="uncategorized")
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(User,
                                    related_name='blogpost_like',
@@ -62,4 +60,4 @@ class Category(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('blog')
+        return reverse('home')
