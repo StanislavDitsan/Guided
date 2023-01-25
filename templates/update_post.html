@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
-{% block title %} Add Blog Post {% endblock %}
+{% block title %} Edit Blog Post {% endblock %}
 
 {% block content %}
 
 
 <br>
 <div class="container">
-    <h1>Add Blog Post</h1>
+    <h1>Update Blog Post</h1>
 </div>
 
-<!--Container Add Blog Post-->
+<!--Container Update Blog Post-->
 <br>
     <div class="container p-3 mb-3 ">
         <form method="post" enctype="multipart/form-data">
@@ -25,7 +25,7 @@
                 </div>
             </div>
             {% endfor %}
-            <button class="btn btn-outline-dark mb-5 mt-4" type="submit">Post</button>
+            <button class="btn btn-outline-dark mb-5 mt-4" type="submit">Update</button>
         </form>
     </div>
 
