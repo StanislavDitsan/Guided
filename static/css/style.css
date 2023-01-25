@@ -165,6 +165,14 @@
     margin-right: 0.3rem;
 }
 
+/*------------ Social links for blogs */
+.social-link {
+    transform: scale(1);
+    transition: all 0.5s ease-in-out;
+}
+.social-link:hover {
+    transform: scale(1.2);
+}
 /*------------ Media queries */
 
 @media (max-width: 769px) {
