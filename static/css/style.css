@@ -170,9 +170,24 @@
     transform: scale(1);
     transition: all 0.5s ease-in-out;
 }
+
 .social-link:hover {
     transform: scale(1.2);
 }
+
+/*------------ Post form width */
+
+#id_title,
+#id_slug,
+#id_author,
+#id_featured_image,
+#id_excerpt,
+#id_content,
+#id_status,
+#id_likes {
+    width: 100%;
+}
+
 /*------------ Media queries */
 
 @media (max-width: 769px) {
