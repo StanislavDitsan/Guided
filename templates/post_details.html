@@ -38,7 +38,6 @@
                     {{ post.content | safe }}
                 </p>
                 <div class="row">
-
                     <div class="col-1">
                         <strong>
                             {% if user.is_authenticated %}
@@ -122,6 +121,14 @@
         </div>
     </div>
 </div>
+
+<!--Button for super user only-->
+<div class="editbtn text-dark text-center">
+    {% if request.user.is_superuser %}
+    <a class="btn btn-outline-dark mb-5 mt-4" href="{% url 'update_post' post.pk %}">Edit Blog</a>
+    {% endif %}
+</div>
+
 <!--Collapse button with social media links-->
 <div class="container mb-5 mt-5 text-center">
     <div class="col mt-4">
