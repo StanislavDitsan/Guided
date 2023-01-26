@@ -31,7 +31,7 @@ def home(request):
 def CategoryView(request, category):
     category_post = Post.objects.filter(category=category)
     return render(request, 'categories.html', {
-        'category': category,
+        'category': category.title(),
         'category_post': category_post
     })
 
