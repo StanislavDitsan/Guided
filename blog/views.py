@@ -29,9 +29,9 @@ def home(request):
 
 
 def CategoryView(request, category):
-    category_post = Post.objects.filter(category=category)
+    category_post = Post.objects.filter(category=category.replace('-', ' '))
     return render(request, 'categories.html', {
-        'category': category.title(),
+        'category': category.title().replace('-', ' '),
         'category_post': category_post
     })
 
