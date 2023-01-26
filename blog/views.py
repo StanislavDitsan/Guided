@@ -28,6 +28,14 @@ def home(request):
     return render(request, 'home.html', {'recent_posts': recent_posts})
 
 
+def CategoryView(request, category):
+    category_post = Post.objects.filter(category=category)
+    return render(request, 'categories.html', {
+        'category': category,
+        'category_post': category_post
+    })
+
+
 class AddPostView(CreateView):
     model = Post
     template_name = 'add_post.html'
