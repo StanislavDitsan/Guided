@@ -88,7 +88,7 @@
                 <div class="author text-muted">
                     by {{ post.author }}
                 </div>
-                <a href="{% url 'category' post.category %}" class="post-link">
+                <a href="{% url 'category' post.category|slugify %}" class="post-link">
                     <p class="card-text text-muted small">Category: {{ post.category }}</p>
                 </a>
             </div>
