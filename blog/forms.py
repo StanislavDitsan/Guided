@@ -1,5 +1,6 @@
 from .models import Comment, Post, Category
 from django import forms
+from django_summernote.fields import SummernoteTextFormField
 
 
 class CommentForm(forms.ModelForm):
@@ -10,6 +11,7 @@ class CommentForm(forms.ModelForm):
 
 
 class PostForm(forms.ModelForm):
+    content = SummernoteTextFormField()
 
     class Meta:
         model = Post
