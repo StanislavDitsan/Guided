@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from django_summernote.fields import SummernoteTextField
 from django.urls import reverse
 
 STATUS = ((0, "Draft"), (1, "Published"))
@@ -15,7 +16,7 @@ class Post(models.Model):
     featured_image = CloudinaryField('image', default='placeholder')
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
-    content = models.TextField()
+    content = SummernoteTextField()
     created_on = models.DateTimeField(auto_now_add=True)
     category = models.CharField(max_length=255, default="uncategorized")
     status = models.IntegerField(choices=STATUS, default=0)
