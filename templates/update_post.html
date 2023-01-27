@@ -3,7 +3,7 @@
 
 {% block content %}
 
-
+{% if request.user.is_superuser %}
 <br>
 <div class="container">
     <h1>Update Blog Post</h1>
@@ -28,7 +28,7 @@
             <button class="btn btn-outline-dark mb-5 mt-4" type="submit">Update</button>
         </form>
     </div>
-
+{% endif %}
 
 
 

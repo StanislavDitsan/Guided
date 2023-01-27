@@ -9,6 +9,7 @@
     <h1>Add Blog Post</h1>
 </div>
 
+{% if request.user.is_superuser %}
 <!--Container Add Blog Post-->
 <br>
     <div class="container p-3 mb-3 ">
@@ -28,9 +29,7 @@
             <button class="btn btn-outline-dark mb-5 mt-4" type="submit">Post</button>
         </form>
     </div>
-
-
-
+{% endif %}
 
 
 
