@@ -188,6 +188,11 @@
     width: 100%;
 }
 
+/*------------ Message-margin on the search page */
+.message-margin {
+    margin: 80%;
+}
+
 /*------------ Media queries */
 
 @media (max-width: 769px) {
