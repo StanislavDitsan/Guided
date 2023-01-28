@@ -5,6 +5,7 @@ from .models import Post
 from .forms import CommentForm, PostForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
+from django.db.models import Q
 
 
 def about(request):
@@ -30,10 +31,11 @@ def home(request):
 
 def CategoryView(request, category):
     category_post = Post.objects.filter(category=category.replace('-', ' '))
-    return render(request, 'categories.html', {
-        'category': category.title().replace('-', ' '),
-        'category_post': category_post
-    })
+    return render(
+        request, 'categories.html', {
+            'category': category.title().replace('-', ' '),
+            'category_post': category_post
+        })
 
 
 class AddPostView(CreateView):
@@ -137,3 +139,14 @@ class PostLike(View):
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+
+def search(request):
+    query = request.GET.get('q')
+    if query:
+        results = Post.objects.filter(
+            Q(title__icontains=query) | Q(content__icontains=query))
+        print(results)
+    else:
+        results = Post.objects.all()
+    return render(request, 'search_results.html', {'results': results})
