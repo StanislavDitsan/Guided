@@ -146,7 +146,10 @@ def search(request):
     if query:
         results = Post.objects.filter(
             Q(title__icontains=query) | Q(content__icontains=query))
-        print(results)
+        if not results:
+            # No results found
+            message = "Sorry, no results were found for your search."
+            return render(request, 'search_results.html', {'message': message})
     else:
         results = Post.objects.all()
     return render(request, 'search_results.html', {'results': results})
