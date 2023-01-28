@@ -7,6 +7,9 @@
 <br>
 <div class="container">
     <h1>Search Results</h1>
+    {% if message %}
+    <p>{{ message }}</p>
+{% endif %}
 </div>
 
 {% for post in results %}
