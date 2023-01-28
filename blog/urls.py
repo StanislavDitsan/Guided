@@ -1,6 +1,6 @@
 from . import views
 from django.urls import path
-from .views import CategoryView
+from .views import CategoryView, search
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -16,5 +16,6 @@ urlpatterns = [
     path('post/<int:pk>/delete',
          views.DeletePostView.as_view(),
          name='delete_post'),
-    path('category/<str:category>/', CategoryView, name='category'),     
+    path('category/<str:category>/', CategoryView, name='category'),
+    path('search', views.search, name='search'),
 ]
