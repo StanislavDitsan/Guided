@@ -1,7 +1,9 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.contrib.auth.decorators import login_required, user_passes_test
+from django.shortcuts import render, get_object_or_404, reverse, redirect
+from django.shortcuts import HttpResponseRedirect
 from django.views import generic, View
 from django.views.generic import CreateView, UpdateView, DeleteView
-from .models import Post
+from .models import Post, Comment
 from .forms import CommentForm, PostForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
@@ -153,3 +155,23 @@ def search(request):
     else:
         results = Post.objects.all()
     return render(request, 'search_results.html', {'results': results})
+
+
+# @login_required
+# def delete_comment(request, id):
+#     comment = get_object_or_404(Comment, pk=comment_id)
+#     if request.user != comment.user:
+#         # only user who created the comment should be able to delete it
+#         return redirect('post_details.html"')
+#     comment.delete()
+#     return redirect('comments')
+
+
+# @login_required
+# def delete_comment(request, pk):
+#     comment = get_object_or_404(Comment, pk=pk)
+#     if request.user == comment.user:
+#         comment.delete()
+#         return redirect(request.META.get('HTTP_REFERER'))
+#     else:
+#         return HttpResponseForbidden()
