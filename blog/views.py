@@ -8,6 +8,7 @@ from .forms import CommentForm, PostForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.db.models import Q
+from django.contrib import messages
 
 
 def about(request):
@@ -114,6 +115,7 @@ class PostDetail(View):
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.save()
+            messages.info(request, 'Your comment has been added successfully!')
         else:
             comment_form = CommentForm()
 
@@ -157,21 +159,13 @@ def search(request):
     return render(request, 'search_results.html', {'results': results})
 
 
-# @login_required
-# def delete_comment(request, id):
-#     comment = get_object_or_404(Comment, pk=comment_id)
-#     if request.user != comment.user:
-#         # only user who created the comment should be able to delete it
-#         return redirect('post_details.html"')
-#     comment.delete()
-#     return redirect('comments')
-
-
-# @login_required
-# def delete_comment(request, pk):
-#     comment = get_object_or_404(Comment, pk=pk)
-#     if request.user == comment.user:
-#         comment.delete()
-#         return redirect(request.META.get('HTTP_REFERER'))
-#     else:
-#         return HttpResponseForbidden()
+@login_required
+def delete_comment(request, pk):
+    comment = get_object_or_404(Comment, pk=pk)
+    if request.user == comment.user:
+        comment.delete()
+        messages.warning(request,
+                         'Your comment has been deleted successfully!')
+        return redirect(request.META.get('HTTP_REFERER'))
+    else:
+        return HttpResponseForbidden()

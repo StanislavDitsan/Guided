@@ -1,6 +1,6 @@
 from . import views
 from django.urls import path
-from .views import CategoryView, search
+from .views import CategoryView, search, delete_comment
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -18,4 +18,7 @@ urlpatterns = [
          name='delete_post'),
     path('category/<str:category>/', CategoryView, name='category'),
     path('search', views.search, name='search'),
+    path('post/<int:pk>/delete/',
+         views.delete_comment,
+         name='delete_comment'),
 ]

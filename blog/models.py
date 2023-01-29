@@ -38,6 +38,7 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     post = models.ForeignKey(Post,
                              on_delete=models.CASCADE,
                              related_name="comments")
