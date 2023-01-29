@@ -1,3 +1,10 @@
+setTimeout(function () {
+  let messages = document.getElementById("msg");
+  let alert = new bootstrap.Alert(messages);
+  alert.close();
+
+}, 3000);
+
 function autoType(element, delay) {
   var p = document.querySelector(element);
   var i = 0;
@@ -16,11 +23,3 @@ function autoType(element, delay) {
 }
 
 autoType('.type-script', 100);
-
-
-setTimeout(function () {
-  let messages = document.getElementById("msg");
-  let alert = new bootstrap.Alert(messages);
-  alert.close();
-
-}, 3000);
