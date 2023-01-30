@@ -23,6 +23,7 @@ class Post(models.Model):
     likes = models.ManyToManyField(User,
                                    related_name='blogpost_like',
                                    blank=True)
+    views = models.PositiveIntegerField(default=0)
 
     class Meta:
         ordering = ["-created_on"]
@@ -35,6 +36,10 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse("blog")
+
+    def increment_views(self):
+        self.views += 1
+        self.save()
 
 
 class Comment(models.Model):
