@@ -193,6 +193,10 @@
     margin: 80%;
 }
 
+/*------------ Links */
+a {
+    text-decoration: none;
+}
 /*------------ Media queries */
 
 @media (max-width: 769px) {
