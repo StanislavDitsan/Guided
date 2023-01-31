@@ -4,7 +4,7 @@ from django.shortcuts import HttpResponseRedirect
 from django.views import generic, View
 from django.views.generic import CreateView, UpdateView, DeleteView
 from .models import Post, Comment
-from .forms import CommentForm, PostForm
+from .forms import CommentForm, PostForm, ContactForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.db.models import Q
@@ -16,7 +16,18 @@ def about(request):
 
 
 def contact(request):
-    return render(request, 'contact.html', {})
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('success')
+    else:
+        form = ContactForm()
+    return render(request, 'contact.html', {'form': form})
+
+
+def success(request):
+    return render(request, 'success.html')
 
 
 def blog(request):
