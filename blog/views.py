@@ -44,7 +44,10 @@ def CategoryView(request, category):
 class AddPostView(CreateView):
     model = Post
     template_name = 'add_post.html'
-    fields = '__all__'
+    fields = [
+        'author', 'title', 'slug', 'content', 'excerpt', 'status',
+        'featured_image', 'category'
+    ]
 
 
 def add_post(request):
@@ -61,7 +64,10 @@ def add_post(request):
 class UpdatePostView(UpdateView):
     model = Post
     template_name = 'update_post.html'
-    fields = '__all__'
+    fields = [
+        'author', 'title', 'slug', 'content', 'excerpt', 'status',
+        'featured_image', 'category'
+    ]
 
 
 class DeletePostView(DeleteView):
