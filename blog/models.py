@@ -70,3 +70,9 @@ class Category(models.Model):
 
     def get_absolute_url(self):
         return reverse('home')
+
+
+class Contact(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    message = models.TextField()
