@@ -1,4 +1,4 @@
-from .models import Comment, Post, Category
+from .models import Comment, Post, Category, Contact
 from django import forms
 from django_summernote.fields import SummernoteTextFormField
 
@@ -16,6 +16,13 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = '__all__'
+
+
+class ContactForm(forms.ModelForm):
+
+    class Meta:
+        model = Contact
+        fields = ['name', 'email', 'message']
 
 
 class ImageUploadForm(forms.Form):
