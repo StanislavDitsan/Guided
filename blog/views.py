@@ -39,7 +39,7 @@ def home(request):
 
 
 def home(request):
-    recent_posts = Post.objects.filter(status=1).order_by('-created_on')[:3]
+    recent_posts = Post.objects.filter(status=1).order_by('-created_on')[:6]
     return render(request, 'home.html', {'recent_posts': recent_posts})
 
 
