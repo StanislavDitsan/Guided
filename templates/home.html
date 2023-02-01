@@ -80,14 +80,14 @@
         <div class="recent-post card mb-3">
             <img class="card-img-top" src="{{ post.featured_image.url }}" alt="blog post image">
             <div class="card-body">
-                <h3 class="card-title text-center">
+                <h3 class="card-title social-link text-center">
                     <a href="{% url 'post_detail' post.slug %}" class="post-link">{{ post.title }}</a>
                 </h3>
                 <div class="author text-muted">
                     by {{ post.author }}
                 </div>
                 <a href="{% url 'category' post.category|slugify %}" class="post-link">
-                    <p class="card-text text-muted small">Category: {{ post.category }}</p>
+                    <p class="card-text social-link text-muted small">Category: {{ post.category }}</p>
                 </a>
             </div>
         </div>
