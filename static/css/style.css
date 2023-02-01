@@ -13,6 +13,10 @@
     float: right;
 }
 
+.navbar {
+    margin-top: -25px;
+}
+
 /*------------ Automated typing */
 .box-container {
     width: 100%;
