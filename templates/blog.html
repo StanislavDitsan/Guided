@@ -25,11 +25,11 @@
                                 </div>
                             </div>
                             <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                                <h2 class="card-title">{{ post.title }}</h2>
+                                <h2 class="card-title social-link">{{ post.title }}</h2>
                                 <p class="card-text">{{ post.excerpt }}</p>
                             </a>
                             <a href="{% url 'category' post.category|slugify %}" class="post-link">
-                                <p class="card-text text-muted small">Category: {{ post.category }}</p>
+                                <p class="card-text social-link text-muted small">Category: {{ post.category }}</p>
                             </a>
                             <hr>
                             <p class="card-text text-muted h6">{{ post.created_on }} <i
