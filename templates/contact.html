@@ -9,9 +9,9 @@
 </div>
 
 <!--Contact form -->
-<section class="container card mt-4 text-center w-50">
+<section class="container mt-4 text-center w-50">
     <div class="row">
-        <form id="contact-form" class="form-horizontal text-muted box-container" method="post">
+        <form id="contact-form" class="form-horizontal text-muted" method="post">
             {% csrf_token %}
             {{ form|crispy}}
             <button class="btn btn-outline-dark mt-4 mb-3" id="submit" type="submit" value="SEND">
