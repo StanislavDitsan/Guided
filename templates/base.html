@@ -75,11 +75,6 @@
                         <a class="nav-link {% active_link 'contact' %}" href="{% url 'contact' %}">Contact</a>
                     </li>
                 </ul>
-                <form class="d-flex" method="GET" action="{% url 'search' %}">
-                    <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-dark" aria-label="Search" type="submit"><i
-                            class="fas fa-search"></i></button>
-                </form>
                 <ul class="navbar-nav mb-2 mb-lg-0 navbar-nav-right">
                     {% if user.is_authenticated %}
                     <li class="nav-item social-link text-muted">
@@ -96,6 +91,11 @@
                     </li>
                     {% endif %}
                 </ul>
+                <form class="d-flex" method="GET" action="{% url 'search' %}">
+                    <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-dark" aria-label="Search" type="submit"><i
+                            class="fas fa-search"></i></button>
+                </form>
             </div>
         </div>
     </nav>
