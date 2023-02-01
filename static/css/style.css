@@ -168,6 +168,15 @@
     margin-right: 0.3rem;
 }
 
+.post-row {
+    white-space: nowrap;
+    overflow-x: hidden;
+  }
+  
+  .recent-posts:hover .post-row {
+    overflow-x: scroll;
+  }
+
 /*------------ Social links for blogs */
 .social-link {
     transform: scale(1);
@@ -197,9 +206,11 @@
 }
 
 /*------------ Links */
+
 a {
     text-decoration: none;
 }
+
 /*------------ Media queries */
 
 @media (max-width: 769px) {
