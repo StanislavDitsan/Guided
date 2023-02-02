@@ -11,6 +11,10 @@ from django.db.models import Q
 from django.contrib import messages
 
 
+def page_404(request, exception):
+    return render(request, '404.html', {})
+
+
 def about(request):
     return render(request, 'about.html', {})
 
