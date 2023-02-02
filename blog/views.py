@@ -12,11 +12,11 @@ from django.contrib import messages
 
 
 def page_404(request, exception):
-    return render(request, '404.html', {})
+    return render(request, '404.html', status=404)
 
 
-def page_505(request, exception):
-    return render(request, '505.html', {})
+def page_505(request):
+    return render(request, '505.html', status=505)
 
 
 def about(request):
