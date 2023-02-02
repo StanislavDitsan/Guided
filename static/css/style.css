@@ -204,6 +204,10 @@ a {
     text-decoration: none;
 }
 
+img.mb-3 {
+    height: 100px;
+}
+
 /*------------ Media queries */
 
 @media (max-width: 769px) {
