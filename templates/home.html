@@ -4,13 +4,28 @@
 
 {% block content %}
 
+<!-- Messages -->
+<div class="container mt-4">
+    <div class="row">
+        <div class="col">
+            {% for message in messages %}
+            <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
+                {{ message | safe }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
 <!-- Slogan -->
 <div class="container">
     <div class="row">
         <div class="col-12 mt-4 mb-3">
             <div class="text-center">
                 <h1 class="text-uppercase">Travel, Eat, Repeat!</h1>
-                <p class="text-muted">This food and travel blog will inspire you to pack your bags and explore the world. From exotic
+                <p class="text-muted">This food and travel blog will inspire you to pack your bags and explore the
+                    world. From exotic
                     destinations to hidden culinary treasures, we'll take you on a journey you won't forget. Join us and
                     discover the world one delicious bite at a time.</p>
             </div>
@@ -112,7 +127,8 @@
                         <h3>Hello, I am Stan</h3>
                     </div>
                     <div class="card-body">
-                        <p class="text-muted">I am the owner and creator of this website. I have always had a passion for exploring new
+                        <p class="text-muted">I am the owner and creator of this website. I have always had a passion
+                            for exploring new
                             places and
                             trying new foods, and I'm excited to share that passion with you.
                             Through this blog, I aim to take you on a journey to some of the most delicious and unique
