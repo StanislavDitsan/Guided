@@ -15,6 +15,10 @@ def page_404(request, exception):
     return render(request, '404.html', {})
 
 
+def page_505(request, exception):
+    return render(request, '505.html', {})
+
+
 def about(request):
     return render(request, 'about.html', {})
 
