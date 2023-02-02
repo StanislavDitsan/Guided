@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title_tag %} 505 {% endblock %}
+
+{% block content %}
+<br>
+
+<section class="container text-center w-50">
+    <div class="row">
+        <h1 class="mb-5">505</h1>
+        <i class="fa-solid fa-wifi-exclamation"></i>
+    </div>
+    <div>
+        <h2>Oops something went wrong</h2>
+        <p>We are unable to process this request due to an internal fault. Please try again after refreshing.
+        </p>
+        <a href="{% url 'home' %}" class="btn btn-outline-dark mt-4 mb-3">Homepage</a>
+    </div>
+</section>
+
+{% endblock %}
