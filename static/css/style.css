@@ -7,6 +7,10 @@
     font-family: 'Nunito Sans', 'News Cycle', sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /*------------ Nav-bar */
 
 .navbar-nav-right {
