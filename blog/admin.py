@@ -8,12 +8,6 @@ class ContactAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'message')
 
 
-@admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('name', 'description')
-    search_fields = ('name', 'description')
-
-
 @admin.register(Post)
 class PostAdmin(SummernoteModelAdmin):
     prepopulated_fields = {'slug': ('title', )}
