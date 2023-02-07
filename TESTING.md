@@ -34,6 +34,8 @@ Expected Result:
 
 - The comment is successfully posted.
 
+- User is able to delete comments
+
 5. [View the comments](https://github.com/StanislavDitsan/Guided/issues/13) 
 - As a Site User, I can view comments on individual posts.
 
