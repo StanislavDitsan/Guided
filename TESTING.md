@@ -76,6 +76,8 @@ Expected Result:
 
 Expected Result:
 - The comment can be marked as approved and visible on the post or not approved
+- For a user to be allowed to delete their comments, the appropriate user must be selected from a drop-down list by admin when approving comments
+- User is able to delete their comments
 
 3. [CRUD function for blog posts](https://github.com/StanislavDitsan/Guided/issues/9)
 - As an admin user I have the ability to add, remove, edit, and delete blog entries from the database.
