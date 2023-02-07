@@ -108,7 +108,7 @@
                         <form method="POST" action="{% url 'delete_comment' comment.id %}">
                             {% csrf_token %}
                             <input type="hidden" name="_method" value="DELETE">
-                            <button type="submit" class="btn btn-outline-danger" value="Delete">Delete</button>
+                            <button type="submit" class="btn btn-outline-danger btn-sm" value="Delete">Delete</button>
                         </form>
                         {% endif %}
                     </div>
@@ -130,7 +130,7 @@
                     <form method="post">
                         {{ comment_form | crispy }}
                         {% csrf_token %}
-                        <button type="submit" class="btn btn-outline-dark mt-1">Submit</button>
+                        <button type="submit" class="btn btn-outline-dark mt-1">Comment</button>
                     </form>
                     {% else %}
                     <p>You must be logged in to leave a comment.</p>
