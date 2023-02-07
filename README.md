@@ -1,7 +1,10 @@
 ![Guided](assets/images/responsive.png)
 
 Guided is a travel blog that covers a variety of topics. Its purpose is to create a platform for the author to share travel experiences, greatest places to visit, best places to dine, and anything else related to travel as well as to express views, expertise, and insights to a bigger audience. Also, create a strong community.
-![Guided](static/images/logo.png)
+
+<p align="center">
+  <img src="static/images/logo.png" width="100%">
+</p> 
 
 #### Click [here](https://stanislavditsan.github.io/The-Beluga/) to visit the website.
 
@@ -48,6 +51,10 @@ Guided is a travel blog that covers a variety of topics. Its purpose is to creat
   * [About](#about)
 
   * [Contact](#contact)
+
+  * [Search](#search)
+
+  * [Category](#category)
 
   * [Login - Register](#login-register)
 
@@ -367,6 +374,18 @@ Author and title are optional.
 - They can leave their name, email, and message so that administrator can view all of the information that the user has provided via the admin panel.
 ![](assets/images/contact-admin.png)
 
+## Search 
+
+- Approach is to use the Django ORM (Object-Relational Mapping) to filter the queryset of post based on the search keyword using a combination of __contains, __icontains and Q lookups.<p align="center">
+  <img src="assets/images/search.gif" width="100%">
+</p> 
+
+## Category
+
+- For the user, category is a beneficial feature. When a website has a lot of blog posts, users can easily go to their desired category and view related blogs.<p align="center">
+  <img src="assets/images/category.gif" width="100%">
+</p> 
+
 
 ## Login - Register 
 
@@ -577,8 +596,6 @@ Author and title are optional.
 ### I tested this project to ensure that everything works properly.
 ### [TESTING.md](TESTING.md)
 
-## Bugs
-
 ## Lighthouse
 
 - Chrome DevTools' Lighthouse is used to audit a site for performance, accessibility, progress, and SEO.
@@ -589,6 +606,7 @@ Author and title are optional.
 
 
 ### W3C HTML Validator
+![](assets/images/w3.org-html.png)
 - HTML validator passed with no errors
 
 ### W3C CSS Validator
@@ -609,6 +627,38 @@ Author and title are optional.
 - I was able to examine the colour contrast of my website using Color Contrast Accessibility Validator
 
 ![](assets/images/a11y.png)
+
+# Bugs
+
+## During the process of working on this project, I encountered a few bugs.
+
+### When I submitted the form for create blog I got the error: 
+- ***clean() got an unexpected keyword argument 'styles'***
+
+###  How did I solve this problem?
+
+1. I've upgraded bleach to the newest version
+
+2. Downgraded summernote
+
+### The function wasn't working when trying to sign up and log in. 
+
+### How did i solve this problem?
+
+1. I added ***ACCOUNT_EMAIL_VERIFICATION = "none"*** to my settings.py
+
+### Google auth wasn’t working correctly
+
+### How did i solve this problem?
+- I provided support for authentication 
+1. I added ***SOCIALACCOUNT_LOGIN_ON_GET = True*** in my settings.py and set it to True
+
+### The image was not loading when an image file was submitted using the add post.html form.
+
+### How did i solve this problem?
+1. I Added attribute in the form ***enctype="multipart/form-data"***
+2. I added form definition in forms.py ***class ImageUploadForm(forms.Form):
+    image = forms.ImageField()***
 
 
 # Deployment
@@ -702,3 +752,5 @@ The [Unsplash](https://unsplash.com/) website provided some of the photographs I
 
 I want to express my gratitude to the team at Code Institute for creating such a great program for learning web development. My ability to comprehend and construct my own project has been greatly aided by your thorough instructions and guides. Also, student care for assistance and understanding.
 Many thanks!
+
+[Go to top](#)
