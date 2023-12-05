@@ -22,9 +22,9 @@
 <!-- Slogan -->
 <div class="container">
     <div class="row">
-        <div class="col-12 mt-4 mb-3">
+        <div class="col-12 mt-1 mb-3">
             <div class="text-center">
-                <h1 class="text-uppercase animate__animated animate__fadeIn">Travel, Eat, Repeat!</h1>
+                <h1 class="text-uppercase display-3 animate__animated animate__fadeIn">Travel, Eat, Repeat!</h1>
                 <p class="text-muted">This food and travel blog will inspire you to pack your bags and explore the
                     world. From exotic
                     destinations to hidden culinary treasures, we'll take you on a journey you won't forget. Join us and
@@ -111,45 +111,40 @@
     </div>
 </div>
 
-<!-- Intro About Me -->
-<div class="container mb-5 mt-5 text-center">
-    <div class="col mt-4">
-        <div class="p-4">
-            <p>
-                <a class="btn btn-outline-dark mt-3" data-bs-toggle="collapse" href="#collapseExample"
-                    aria-expanded="false" aria-controls="collapseExample">
-                    Intro About Me
-                </a>
-            </p>
-            <div class="collapse" id="collapseExample">
-                <div class="row">
-                    <div class="col mt-4 avatar">
-                        <img src="{% static 'images/avatar.png' %}" alt="avatar" class="mb-3">
-                        <h3>Hello, I am Stan</h3>
-                    </div>
-                    <div class="card-body">
-                        <p class="text-muted">I am the owner and creator of this website. I have always had a passion
-                            for exploring new
-                            places and
-                            trying new foods, and I'm excited to share that passion with you.
-                            Through this blog, I aim to take you on a journey to some of the most delicious and unique
-                            destinations around the world. From street food to fine dining, I'll be sharing my personal
-                            experiences and recommendations to help you plan your next culinary adventure.
-                            I believe that food is one of the most powerful ways to connect with different cultures and
-                            people.
-                            Whether you're a traveler looking to explore new places, or a food lover seeking inspiration
-                            for
-                            your next meal, I hope this blog will inspire you to get out and see the world.
-                            So come along for the ride, and let's discover the world one plate at a time!</p>
-                    </div>
-                </div>
+<div class="container text-center p-5">
+    <div class="row">
+        <div class="col">
+            <span class="text-uppercase display-6">Read <span
+                    class="bg-dark text-white text-decoration-none border border-1 rounded-3 p-2"><a class="text-white"
+                        href="{% url 'blog' %}">More</a></span></span>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row align-items-md-stretch">
+        <div class="col-md-6">
+            <div class="h-100 p-5 text-white bg-dark rounded-3">
+                <h2>Change the background</h2>
+                <p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look.
+                    Then, mix and match with additional component themes and more.</p>
+                <button class="btn btn-outline-light" type="button">Example button</button>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="h-100 p-5 bg-light border rounded-3">
+                <h2>Add borders</h2>
+                <p>Or, keep it light and add a border for some added definition to the boundaries of your content. Be
+                    sure to look under the hood at the source HTML here as we've adjusted the alignment and sizing of
+                    both column's content for equal-height.</p>
+                <button class="btn btn-outline-secondary" type="button">Example button</button>
             </div>
         </div>
     </div>
 </div>
 
 <!-- Travel Gallery -->
-<div class="container mb-5">
+<!-- <div class="container mb-5">
 
     <h1 class="text-center text-uppercase mb-3">Travel Gallery</h1>
 
@@ -206,6 +201,6 @@
 
     </div>
 
-</div>
+</div> -->
 
 {% endblock %}

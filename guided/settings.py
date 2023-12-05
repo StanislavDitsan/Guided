@@ -31,7 +31,7 @@ DEBUG = False
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-ALLOWED_HOSTS = ["guided-blog.herokuapp.com", "localhost"]
+ALLOWED_HOSTS = ["guided-blog.herokuapp.com", "localhost", '.gitpod.io']
 
 # Application definition
 

@@ -113,6 +113,10 @@ class PostDetail(View):
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
 
+        # Get the next and previous posts
+        next_post = queryset.filter(created_on__gt=post.created_on).order_by('created_on').first()
+        prev_post = queryset.filter(created_on__lt=post.created_on).order_by('-created_on').first()
+
         return render(
             request,
             "post_details.html",
@@ -121,9 +125,12 @@ class PostDetail(View):
                 "comments": comments,
                 "commented": False,
                 "liked": liked,
-                "comment_form": CommentForm()
+                "comment_form": CommentForm(),
+                "next_post": next_post,
+                "prev_post": prev_post,
             },
         )
+
 
     def post(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)

@@ -6,6 +6,19 @@
 
 {% load social_share %}
 
+<!-- Open Graph Meta Tags -->
+<meta property="og:title" content="{{ post.title }}">
+<meta property="og:description" content="{{ post.summary }}">
+<meta property="og:image" content="{{ post.featured_image.url }}">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ post.title }}">
+<meta name="twitter:description" content="{{ post.summary }}">
+<meta name="twitter:image" content="{{ post.featured_image.url }}">
+
+
 <div class="container mt-4">
     <div class="row">
         <div class="col">
@@ -18,6 +31,23 @@
         </div>
     </div>
 </div>
+
+<!-- Nav btn for blog -->
+<div class="container">
+    <div class="row">
+        <div class="col">
+            {% if prev_post %}
+            <a href="{% url 'post_detail' prev_post.slug %}" class="btn btn-sm btn-outline-dark">&lt; Previous</a>
+            {% endif %}
+        </div>
+        <div class="col text-end">
+            {% if next_post %}
+            <a href="{% url 'post_detail' next_post.slug %}" class="btn btn-sm btn-outline-dark">Next &gt;</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
 
 <div class="banner mt-4">
     <div class="container">
@@ -87,8 +117,8 @@
         </div>
     </div>
     <div class="container">
-        <div class="row">
-            <div class="col card mb-4 mt-3">
+        <div class="row d-flex flex-column flex-md-row">
+            <div class="col card mb-4 mt-3 m-lg-2 m-md-2">
                 <h3 class="mt-2">Comments:</h3>
                 <div class="card-body">
                     <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
@@ -116,7 +146,7 @@
                     {% endfor %}
                 </div>
             </div>
-            <div class="col-md-4 card mb-4 mt-3">
+            <div class="col card mb-4 mt-3 m-lg-2 m-md-2">
                 <div class="card-body">
                     {% if commented %}
                     <div class="alert alert-dark" role="alert">
@@ -155,6 +185,26 @@
     {% endif %}
 </div>
 
+<!-- Nav icons for blog -->
+<div class="container">
+    <div class="row">
+        <div class="col">
+            {% if prev_post %}
+            <a href="{% url 'post_detail' prev_post.slug %}" aria-label="left-btn" class="btn btn-sm btn-outline-dark border-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Previous Post">
+                <i class="fas fa-chevron-left"></i>
+            </a>
+            {% endif %}
+        </div>
+        <div class="col text-end">
+            {% if next_post %}
+            <a href="{% url 'post_detail' next_post.slug %}" aria-label="right-btn" class="btn btn-sm btn-outline-dark border-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Next Post">
+                <i class="fas fa-chevron-right"></i>
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
 <!--Collapse button with social media links-->
 <div class="container mb-5 text-center">
     <div class="col mt-4">
@@ -185,10 +235,15 @@
                             {% post_to_whatsapp object_or_url '<i class="fab fa-whatsapp fa-2x text-dark"></i>' %}
                         </div>
                     </div>
+                    <div class="d-flex justify-content-center">
+                        <div class="p-2 social-link">
+                            {% add_pinterest_script %}
+                            {% save_to_pinterest object_or_url '<i class="fab fa-pinterest fa-2x text-dark"></i>' %}
+                        </div>
+                    </div>
                 </div>
 
             </div>
-
         </div>
     </div>
 </div>
