@@ -6,7 +6,7 @@ Guided is a travel blog that covers a variety of topics. Its purpose is to creat
   <img src="static/images/logo.png" width="100%">
 </p> 
 
-#### Click [here](https://stanislavditsan.github.io/The-Beluga/) to visit the website.
+#### Click [here](https://guided-blog.herokuapp.com/) to visit the website.
 
 
 # Table of Content
