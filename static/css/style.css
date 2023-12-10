@@ -226,6 +226,35 @@ img.mb-3 {
     background-size: cover;
 }
 
+/*------------ Input field and label */
+
+input#id_login,
+input#id_username,
+input#id_email,
+input#id_password1,
+input#id_password2,
+input#id_password {
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #f8f8f8;
+    color: #333;
+    transition: border-color 0.3s;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.signup label {
+    display: inline-block;
+    width: 150px;
+    /* Set a fixed width for the labels */
+}
+
+.signup input {
+    display: inline-block;
+}
+
 /*------------ Media queries */
 
 @media (max-width: 769px) {
