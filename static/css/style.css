@@ -46,15 +46,15 @@ html {
 }
 
 .carousel-bg-1 {
-    background-image: url('https://images.unsplash.com/photo-1462043103994-3eb31d19a057?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');
+    background-image: url('https://cdn.pixabay.com/photo/2017/03/14/16/56/banner-2143726_1280.jpg');
 }
 
 .carousel-bg-2 {
-    background-image: url('https://images.unsplash.com/photo-1542125651-75b17affcd7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80');
+    background-image: url('https://cdn.pixabay.com/photo/2022/08/29/14/30/black-7419024_1280.jpg');
 }
 
 .carousel-bg-3 {
-    background-image: url('https://images.unsplash.com/photo-1505155245898-1bafb3ebcdad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80');
+    background-image: url('https://cdn.pixabay.com/photo/2021/08/18/19/23/background-6556393_1280.jpg');
 }
 
 /* --------------------------Blog-container */
@@ -210,6 +210,20 @@ a {
 
 img.mb-3 {
     height: 100px;
+}
+
+/* Add the parallax CSS use parallax-section as class*/
+.parallax-section {
+    /* The image used */
+    background-image: url("https://cdn.pixabay.com/photo/2022/08/29/14/30/black-7419024_1280.jpg");
+
+    padding: 30px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /*------------ Media queries */
