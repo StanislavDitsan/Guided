@@ -1,7 +1,15 @@
 {% extends 'base.html' %}
 {% block title %} Search Results {% endblock %}
 
+{% load static %}
+
 {% block content %}
+
+{% block script %}
+{{ block.super }}
+<!-- Additional JavaScript for night mode -->
+<script src="{% static 'js/dayNight.js' %}"></script>
+{% endblock script %}
 
 
 <br>

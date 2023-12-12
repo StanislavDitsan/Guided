@@ -1,7 +1,15 @@
 {% extends 'base.html' %}
 {% block title_tag %} 505 {% endblock %}
 
+{% load static %}
+
 {% block content %}
+
+{% block script %}
+{{ block.super }}
+<!-- Additional JavaScript for night mode -->
+<script src="{% static 'js/dayNight.js' %}"></script>
+{% endblock script %}
 <br>
 
 <section class="container text-center w-50">

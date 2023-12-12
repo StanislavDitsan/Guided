@@ -4,6 +4,16 @@
 
 {% block content %}
 
+{% block script %}
+{{ block.super }}
+<!-- Additional JavaScript for the home page -->
+<script src="{% static 'js/post_details.js' %}"></script>
+{% endblock script %}
+
+{% load crispy_forms_tags %}
+
+{% load social_share %}
+
 <br>
 <div class="container">
     <h1 class="text-uppercase animate__animated animate__fadeIn">About</h1>

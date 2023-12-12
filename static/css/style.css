@@ -255,6 +255,228 @@ input#id_password {
     display: inline-block;
 }
 
+/* Night Mode Styles */
+body.night-mode {
+    background-color: #121212;
+    color: #ffffff;
+    /* Set text color to white */
+}
+
+body.night-mode .navbar {
+    background-color: #121212; /* Set navbar background color for night mode */
+    color: #ffffff; /* Set navbar text color for night mode */
+}
+
+body.night-mode .navbar-toggler-icon {
+    background-color: #ffffff; /* Set navbar toggler icon color for night mode */
+}
+
+/* Update the theme icon colors for night mode */
+body.night-mode .theme__icon> :nth-child(1) {
+    background-color: #ffffff;
+}
+
+body.night-mode .theme__icon> :nth-child(2)> :nth-child(1),
+body.night-mode .theme__icon> :nth-child(2)> :nth-child(2),
+body.night-mode .theme__icon> :nth-child(2)> :nth-child(3),
+body.night-mode .theme__icon> :nth-child(2)> :nth-child(4) {
+    background-color: #ffffff;
+}
+
+body.night-mode .theme__icon> :nth-child(3) {
+    background-color: #212121;
+}
+
+/* Ensure other dark or black text becomes white in night mode */
+body.night-mode p,
+body.night-mode h1,
+body.night-mode h2,
+body.night-mode h3,
+body.night-mode h4,
+body.night-mode h5,
+body.night-mode h6,
+body.night-mode .text-dark,
+body.night-mode .btn-outline-dark,
+body.night-mode .text-secondary,
+body.night-mode .alert-dark,
+body.night-mode .btn-dark {
+    color: #ffffff;
+    /* Set text color to white */
+}
+
+/* Update the night mode styles to include navbar */
+body.night-mode .navbar {
+    background-color: #121212;
+    /* Set navbar background color for night mode */
+    color: #ffffff;
+    /* Set navbar text color to white */
+}
+
+body.night-mode .navbar-toggler-icon {
+    background-color: #ffffff;
+    /* Set navbar toggler icon color to white */
+}
+
+body.night-mode .navbar-nav .nav-item .nav-link {
+    color: #ffffff;
+    /* Set navbar links text color to white */
+}
+
+body.night-mode .navbar-nav .nav-item .nav-link.active {
+    color: #ffcc00;
+    /* Set active navbar link text color to a contrasting color */
+}
+
+body.night-mode .navbar-nav-right .nav-item .nav-link {
+    color: #ffffff;
+    /* Set right-aligned navbar links text color to white */
+}
+
+body.night-mode .navbar-form .form-control {
+    background-color: #212121;
+    /* Set search input background color for night mode */
+    color: #ffffff;
+    /* Set search input text color to white */
+    border-color: #ffffff;
+    /* Set search input border color to white */
+}
+
+body.night-mode .navbar-form .btn-outline-dark {
+    color: #ffffff;
+    /* Set search button text color to white */
+    border-color: #ffffff;
+    /* Set search button border color to white */
+}
+
+/* <reset-style> ============================ */
+button {
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+/* <main-style> ============================ */
+.theme__icon {
+    width: 32px;
+    height: 32px;
+    padding: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.theme__icon> :nth-child(1) {
+    width: 14px;
+    height: 14px;
+    border-radius: 24px;
+    border: 1px solid #212121;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(255, 204, 0);
+    transition: width .4s, height .4s, border .4s, background-color .4s;
+    z-index: 10;
+}
+
+.theme__icon:hover> :nth-child(1) {
+    width: 24px;
+    height: 24px;
+    border: 1px solid rgb(245, 245, 247);
+    background-color: rgb(245, 245, 247);
+}
+
+.theme__icon> :nth-child(2) {
+    width: 24px;
+    height: 24px;
+    border-radius: 24px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform .4s;
+}
+
+.theme__icon:hover> :nth-child(2) {
+    transform: translate(-50%, -50%) rotate(-45deg) scale(.8);
+}
+
+.theme__icon> :nth-child(2)> :nth-child(1) {
+    display: block;
+    width: 2px;
+    height: 24px;
+    border-radius: 2px;
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(255, 204, 0);
+}
+
+.theme__icon> :nth-child(2)> :nth-child(2) {
+    display: block;
+    width: 24px;
+    height: 2px;
+    border-radius: 2px;
+    position: relative;
+    top: -54%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(255, 204, 0);
+}
+
+.theme__icon> :nth-child(2)> :nth-child(3) {
+    display: block;
+    width: 24px;
+    height: 2px;
+    border-radius: 2px;
+    position: relative;
+    top: -60%;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    background-color: rgb(255, 204, 0);
+}
+
+.theme__icon> :nth-child(2)> :nth-child(4) {
+    display: block;
+    width: 24px;
+    height: 2px;
+    border-radius: 2px;
+    position: relative;
+    top: -70%;
+    left: 50%;
+    transform: translateX(-50%) rotate(-45deg);
+    background-color: rgb(255, 204, 0);
+}
+
+.theme__icon> :nth-child(3) {
+    width: 20px;
+    height: 20px;
+    border-radius: 24px;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+    background-color: #212121;
+    transition: top .4s, left .4s;
+    transition-delay: .2s;
+    z-index: 20;
+}
+
+.theme__icon:hover> :nth-child(3) {
+    top: 35%;
+    left: 25%;
+}
+
+/* Night Mode Styles END */
+
+textarea#id_body {
+    background-color: transparent;
+    color: #7e7a7a;
+}
+
 /*------------ Media queries */
 
 @media (max-width: 769px) {

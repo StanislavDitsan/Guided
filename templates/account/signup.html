@@ -2,9 +2,19 @@
 
 {% load i18n %}
 {% block title_tag %} Signup {% endblock %}
+
+{% load static %}
+
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
+
+{% block script %}
+{{ block.super }}
+<!-- Additional JavaScript for night mode -->
+<script src="{% static 'js/dayNight.js' %}"></script>
+{% endblock script %}
+
 <div class="text-muted mt-4 mb-5 ">
   <h1>{% trans "Sign Up" %}</h1>
 

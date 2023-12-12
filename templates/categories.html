@@ -1,8 +1,15 @@
 {% extends 'base.html' %}
 {% block title %} Categories {% endblock %}
 
+{% load static %}
+
 {% block content %}
 
+{% block script %}
+{{ block.super }}
+<!-- Additional JavaScript for night mode -->
+<script src="{% static 'js/dayNight.js' %}"></script>
+{% endblock script %}
 
 <br>
 <div class="container animate__animated animate__fadeIn">

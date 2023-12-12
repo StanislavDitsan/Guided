@@ -4,7 +4,15 @@
 
 {% block head_title %}{% trans "Sign Out" %}{% endblock %}
 
+{% load static %}
+
 {% block content %}
+
+{% block script %}
+{{ block.super }}
+<!-- Additional JavaScript for night mode -->
+<script src="{% static 'js/dayNight.js' %}"></script>
+{% endblock script %}
 <div class="container">
   <div class="row">
     <div class="col-md-8 mt-4 offset-md-2">

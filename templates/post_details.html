@@ -1,6 +1,15 @@
 {% extends 'base.html' %}
 {% block title_tag %} {{ post.title }} {% endblock %}
+
+{% load static %}
+
 {% block content %}
+
+{% block script %}
+{{ block.super }}
+<!-- Additional JavaScript for night mode -->
+<script src="{% static 'js/dayNight.js' %}"></script>
+{% endblock script %}
 
 {% load crispy_forms_tags %}
 
@@ -40,6 +49,19 @@
             <a href="{% url 'post_detail' prev_post.slug %}" class="btn btn-sm btn-outline-dark">&lt; Previous</a>
             {% endif %}
         </div>
+        <!-- Night Mode Button -->
+        <!-- <div class="col text-center">
+            <button type="button" class="theme__icon">
+                <span></span>
+                <span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+                <span></span>
+            </button>
+        </div> -->
         <div class="col text-end">
             {% if next_post %}
             <a href="{% url 'post_detail' next_post.slug %}" class="btn btn-sm btn-outline-dark">Next &gt;</a>
@@ -118,7 +140,7 @@
     </div>
     <div class="container">
         <div class="row d-flex flex-column flex-md-row">
-            <div class="col card mb-4 mt-3 m-lg-2 m-md-2">
+            <div class="col card mb-4 mt-3 m-lg-2 m-md-2 bg-transparent">
                 <h3 class="mt-2">Comments:</h3>
                 <div class="card-body">
                     <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
@@ -127,7 +149,7 @@
                         <p class="font-weight-bold">
                             <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
                             {{ comment.name }}
-                            <span class=" text-muted font-weight-normal">
+                            <span class="text-muted font-weight-normal">
                                 <!-- The comment's created date goes here -->
                                 {{ comment.created_on }}
                             </span> wrote:
@@ -146,7 +168,7 @@
                     {% endfor %}
                 </div>
             </div>
-            <div class="col card mb-4 mt-3 m-lg-2 m-md-2">
+            <div class="col card mb-4 mt-3 m-lg-2 m-md-2 bg-transparent">
                 <div class="card-body">
                     {% if commented %}
                     <div class="alert alert-dark" role="alert">
@@ -163,7 +185,7 @@
                         <button type="submit" class="btn btn-outline-dark mt-1">Comment</button>
                     </form>
                     {% else %}
-                    <p>You must be logged in to leave a comment.</p>
+                    <p class="text-muted">You must be logged in to leave a comment.</p>
                     <a href="{% url 'account_login' %}"><i class="fa fa-sign-in-alt"></i> Log in</a>
 
                     {% endif %}
@@ -190,14 +212,18 @@
     <div class="row">
         <div class="col">
             {% if prev_post %}
-            <a href="{% url 'post_detail' prev_post.slug %}" aria-label="left-btn" class="btn btn-sm btn-outline-dark border-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Previous Post">
+            <a href="{% url 'post_detail' prev_post.slug %}" aria-label="left-btn"
+                class="btn btn-sm btn-outline-dark border-0" data-bs-toggle="tooltip" data-bs-placement="top"
+                title="Previous Post">
                 <i class="fas fa-chevron-left"></i>
             </a>
             {% endif %}
         </div>
         <div class="col text-end">
             {% if next_post %}
-            <a href="{% url 'post_detail' next_post.slug %}" aria-label="right-btn" class="btn btn-sm btn-outline-dark border-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Next Post">
+            <a href="{% url 'post_detail' next_post.slug %}" aria-label="right-btn"
+                class="btn btn-sm btn-outline-dark border-0" data-bs-toggle="tooltip" data-bs-placement="top"
+                title="Next Post">
                 <i class="fas fa-chevron-right"></i>
             </a>
             {% endif %}
@@ -247,6 +273,5 @@
         </div>
     </div>
 </div>
-
 
 {% endblock content %}

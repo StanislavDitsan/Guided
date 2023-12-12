@@ -1,8 +1,15 @@
 {% extends "base.html" %}
 {% block title_tag %} Blog {% endblock %}
-{% block content %}
+{% load static %}
 
-<div class="container-fluid blog-container animate__animated animate__fadeIn">
+{% block content %}
+{% block script %}
+{{ block.super }}
+<!-- Additional JavaScript for night mode -->
+<script src="{% static 'js/dayNight.js' %}"></script>
+{% endblock script %}
+
+<div class="container-fluid blog-container animate__animated animate__fadeIn bg-transparent">
     <div class="row">
 
         <!-- Blog Entries Column -->
@@ -10,7 +17,7 @@
             <div class="row">
                 {% for post in post_list %}
                 <div class="col-md-4">
-                    <div class="card mb-4">
+                    <div class="card mb-4 bg-transparent">
                         <div class="card-body">
                             <div class="image-container">
                                 {% if "placeholder" in post.featured_image.url %}
@@ -20,12 +27,12 @@
                                 {% else %}
                                 <img class="card-img-top" src="{{ post.featured_image.url }}" alt="blog post image">
                                 {% endif %}
-                                <div class="image-flash">
-                                    <p class="author">Author: {{ post.author }}</p>
-                                </div>
+                                <!-- <div class="image-flash">
+                                    <p class="author mt-1 text-muted text-xs">Author: {{ post.author }}</p>
+                                </div> -->
                             </div>
                             <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                                <h2 class="card-title social-link">{{ post.title }}</h2>
+                                <h2 class="card-title social-link mt-3">{{ post.title }}</h2>
                                 <p class="card-text">{{ post.excerpt }}</p>
                             </a>
                             <a href="{% url 'category' post.category|slugify %}" class="post-link">

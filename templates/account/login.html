@@ -2,11 +2,20 @@
 
 {% load i18n %}
 {% load account socialaccount %}
+
+{% load static %}
 {% block title_tag %} Sign In {% endblock %}
 
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
+
+{% block script %}
+{{ block.super }}
+<!-- Additional JavaScript for night mode -->
+<script src="{% static 'js/dayNight.js' %}"></script>
+{% endblock script %}
+
 <div class="container text-muted">
   <div class="row">
     <div class="col-md-8 mt-4 offset-md-2">
@@ -17,8 +26,7 @@
 
       {% if socialaccount_providers %}
       <p>{% blocktrans with site.name as site_name %} Welcome to Guided Blog. To leave a comment or like a post, please
-        sign in with <span><i class="fab fa-google"></i></span>oogle account Or, <a
-          href="{{ signup_url }}">sign up</a>
+        sign in with <span><i class="fab fa-google"></i></span>oogle account Or, <a href="{{ signup_url }}">sign up</a>
         for a {{ site_name }} and sign in below:{% endblocktrans %}</p>
 
       <div class="socialaccount_ballot">
