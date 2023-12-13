@@ -3,12 +3,13 @@
 {% load crispy_forms_tags %}
 {% load static %}
 
+{% block content %}
+
 {% block script %}
 {{ block.super }}
 <!-- Additional JavaScript for night mode -->
 <script src="{% static 'js/dayNight.js' %}"></script>
 {% endblock script %}
-{% block content %}
 
 <br>
 <div class="container">

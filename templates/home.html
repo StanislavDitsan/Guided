@@ -28,7 +28,7 @@
                     <span>Do you like?</span>
                     <h1 class="display-3 fw-bold mb-3">Explore. Discover. Thrive.</h1>
                     <p class="lead mb-4">Our platform offers a diverse range of content, ensuring there's something for
-                        everyone!</p><a class="btn btn-lg btn-outline-dark" href="">Learn more</a>
+                        everyone!</p><a class="btn btn-lg btn-outline-warning" href="{% url 'about' %}">Learn more</a>
                 </div>
             </div>
         </div>
@@ -80,7 +80,7 @@
 </section>
 
 <!-- Automated typing -->
-<section class="py-5 bg-light">
+<section class="py-5 bg-transparent">
     <div class="container pb-5 pt-5">
         <div class="row justify-content-center text-center">
             <div class="col-lg-8">
@@ -94,25 +94,22 @@
 
 <!-- Recent blog posts -->
 <section>
-    <div class="container-fluid py-5 recent-posts blog-container bg-light">
+    <div class="container-fluid py-5 recent-posts blog-container bg-transparent">
         <div class="text-center mb-3">
             <h2 class="text-muted">Recent Posts</h2>
         </div>
         <div class="post-row">
             {% for post in recent_posts %}
-            <div class="recent-post card col-md-6 col-lg-3 mb-3">
-                <img class="card-img-top" src="{{ post.featured_image.url }}" alt="blog post image">
-                <div class="card-body">
-                    <h3 class="card-title social-link text-center">
-                        <a href="{% url 'post_detail' post.slug %}" class="post-link">{{ post.title }}</a>
-                    </h3>
-                    <div class="author text-muted">
-                        by {{ post.author }}
+            <div class="recent-post card col-md-6 col-lg-3 mb-3 bg-transparent">
+                <a href="{% url 'post_detail' post.slug %}" class="post-link text-muted">
+                    <img class="card-img-top" src="{{ post.featured_image.url }}" alt="blog post image">
+                    <div class="card-body">
+                        <h3 class="social-link text-center">{{ post.title }}</h3>
+                        <a href="{% url 'category' post.category|slugify %}" class="post-link">
+                            <p class="card-text social-link text-muted small">Category: {{ post.category }}</p>
+                        </a>
                     </div>
-                    <a href="{% url 'category' post.category|slugify %}" class="post-link">
-                        <p class="card-text social-link text-muted small">Category: {{ post.category }}</p>
-                    </a>
-                </div>
+                </a>
             </div>
             {% endfor %}
         </div>
@@ -121,25 +118,28 @@
 
 
 
+
 <section class="p-5">
-    <div class="container">
+    <div class="container bg-transparent">
         <div class="row">
             <div class="col-md-6">
-                <div class="bg-light p-5 rounded text-center">
+                <div class="p-5 rounded text-center">
                     <form class="d-flex pb-2" method="GET" action="{% url 'search' %}">
-                        <input class="form-control me-2" type="search" name="q" placeholder="Looking for something? 👀"
+                        <input class="form-control me-2 bg-transparent" type="search" name="q" placeholder="Looking for something? 👀"
                             aria-label="Search">
                         <button class="btn btn-outline-dark" aria-label="Search" type="submit"><i
                                 class="fas fa-search"></i></button>
                     </form>
                 </div>
             </div>
-            <div class="col-md-6 ">
-                <div class="bg-dark p-5 rounded text-center parallax-section">
+            <div class="col-md-6">
+                <div class="p-5 rounded text-center">
                     <div class="col">
-                        <span class="text-uppercase display-6 text-white">Read <span
-                                class="bg-dark text-white text-decoration-none border border-1 rounded-3 p-2"><a
-                                    class="text-white" href="{% url 'blog' %}">More</a></span></span>
+                        <span class="text-uppercase display-6">Read
+                            <span class="text-decoration-none border border-1 rounded-3 p-2 btn-outline-warning">
+                                <a class="text-secondary" href="{% url 'blog' %}">More</a>
+                            </span>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -150,20 +150,66 @@
 <section class="py-5">
     <div class="container justify-content-center">
         <div class="row">
-            <div class="col-md-6 rounded text-center parallax-section">
+            <div class="col-md-6 rounded text-center">
                 <span class="text-muted">Our Story</span>
                 <h2 class="display-5 fw-bold">About Us</h2>
                 <p class="lead">Discover a variety of blogs beyond just travel and food <br> delve into lifestyle,
-                    fascinating information, useful tips, and more.</p><a class="btn btn-outline-dark mt-2 mb-2"
-                    href="">Learn more</a>
+                    fascinating information, useful tips, and more.</p><a class="btn btn-outline-warning mt-2 mb-2"
+                    href="{% url 'about' %}">Learn more</a>
             </div>
-            <div class="col-md-6 p-5 rounded text-center bg-light">
+            <div class="col-md-6 p-4 rounded text-center">
                 <br>
                 <p class="fs-5">Whether it's travel adventures, culinary gems, or insights into everyday life, explore a
                     world of blogs covering a spectrum of interests.</p>
-                <hr class="bg-transparent">
                 <p class="fs-5">Join us in unraveling the richness of different topics and discovering valuable insights
                     one blog at a time.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center text-center mb-2 mb-lg-4">
+            <div class="col-12 col-lg-8 col-xxl-7 text-center mx-auto">
+                <span class="text-muted">Showcase</span>
+                <h2 class="display-5 fw-bold">Our Gallery</h2>
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta harum ipsum venenatis
+                    metus sem veniam eveniet aperiam suscipit.</p>
+            </div>
+        </div>
+        <div class="row py-3 align-items-center">
+            <div class="col-md-6 mt-md-0 mt-4">
+                <div class="mb-5 mb-lg-3"><img class="img-fluid"
+                        src="https://freefrontend.dev/assets/rectangle-wide.png"></div>
+            </div>
+            <div class="col-md-6 ps-md-5">
+                <div class="mb-5 mb-lg-3">
+                    <h4>A Catchy Title</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente accusantium nulla, sequi
+                        cupiditate exercitationem sit incidunt rerum explicabo. Soluta beatae esse praesentium
+                        exercitationem vero harum pariatur adipisci qui veritatis est!</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta harum ipsum venenatis metus sem
+                        veniam eveniet aperiam suscipit.</p><a class="btn btn-lg btn-primary" href="">View Gallery</a>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="mb-3 mb-lg-0"><img alt="" class="img-fluid"
+                        src="https://freefrontend.dev/assets/rectangle-wide.png"></div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="mb-3 mb-lg-0"><img alt="" class="img-fluid"
+                        src="https://freefrontend.dev/assets/rectangle-wide.png"></div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="mb-3 mb-lg-0"><img alt="" class="img-fluid"
+                        src="https://freefrontend.dev/assets/rectangle-wide.png"></div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="mb-3 mb-lg-0"><img alt="" class="img-fluid"
+                        src="https://freefrontend.dev/assets/rectangle-wide.png"></div>
             </div>
         </div>
     </div>

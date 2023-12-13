@@ -17,32 +17,30 @@
             <div class="row">
                 {% for post in post_list %}
                 <div class="col-md-4">
-                    <div class="card mb-4 bg-transparent">
-                        <div class="card-body">
-                            <div class="image-container">
-                                {% if "placeholder" in post.featured_image.url %}
-                                <img class="card-img-top"
-                                    src="https://images.pexels.com/photos/1008155/pexels-photo-1008155.jpeg?auto=compress&cs=tinysrgb&w=800"
-                                    alt="default image">
-                                {% else %}
-                                <img class="card-img-top" src="{{ post.featured_image.url }}" alt="blog post image">
-                                {% endif %}
+                    <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                        <div class="card mb-4 bg-transparent">
+                            <div class="card-body">
+                                <div class="image-container">
+                                    {% if "placeholder" in post.featured_image.url %}
+                                    <img class="card-img-top"
+                                        src="https://images.pexels.com/photos/1008155/pexels-photo-1008155.jpeg?auto=compress&cs=tinysrgb&w=800"
+                                        alt="default image">
+                                    {% else %}
+                                    <img class="card-img-top" src="{{ post.featured_image.url }}" alt="blog post image">
+                                    {% endif %}
+                                </div>
                                 <!-- <div class="image-flash">
                                     <p class="author mt-1 text-muted text-xs">Author: {{ post.author }}</p>
                                 </div> -->
-                            </div>
-                            <a href="{% url 'post_detail' post.slug %}" class="post-link">
                                 <h2 class="card-title social-link mt-3">{{ post.title }}</h2>
                                 <p class="card-text">{{ post.excerpt }}</p>
-                            </a>
-                            <a href="{% url 'category' post.category|slugify %}" class="post-link">
                                 <p class="card-text social-link text-muted small">Category: {{ post.category }}</p>
-                            </a>
-                            <hr>
-                            <p class="card-text text-muted h6">{{ post.created_on }} <i
-                                    class="far fa-heart"></i>{{ post.number_of_likes }} </p>
+                                <hr>
+                                <p class="card-text text-muted h6">{{ post.created_on }} <i
+                                        class="far fa-heart"></i>{{ post.number_of_likes }} </p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 {% if forloop.counter|divisibleby:3 %}
             </div>

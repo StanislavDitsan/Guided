@@ -11,7 +11,6 @@
 <script src="{% static 'js/dayNight.js' %}"></script>
 {% endblock script %}
 
-
 <br>
 <div class="container animate__animated animate__fadeIn">
     <h1>Search Results</h1>
@@ -20,50 +19,37 @@
     {% endif %}
 </div>
 
-{% for post in results %}
-<div class="container-fluid blog-container animate__animated animate__fadeIn">
+<div class="container-fluid blog-container animate__animated animate__fadeIn bg-transparent">
     <div class="row">
-        <div class="col mt-3">
-            <div class="row justify-content-center">
-
-                <div class="col-md-6">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <div class="image-container">
-                                {% if "placeholder" in post.featured_image.url %}
-                                <img class="card-img-top"
-                                    src="https://images.pexels.com/photos/1008155/pexels-photo-1008155.jpeg?auto=compress&cs=tinysrgb&w=800"
-                                    alt="default image">
-                                {% else %}
-                                <img class="card-img-top" src="{{ post.featured_image.url }}" alt="blog post image">
-                                {% endif %}
-                                <div class="image-flash">
-                                    <p class="author">Author: {{ post.author }}</p>
-                                </div>
-                            </div>
-                            <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                                <h2 class="card-title social-link">{{ post.title }}</h2>
-                                <p class="card-text">{{ post.excerpt }}</p>
-                            </a>
-                            <a href="{% url 'category' post.category|slugify %}" class="post-link">
-                                <p class="card-text social-link text-muted text-uppercase small">Category:
-                                    {{ post.category }}</p>
-                            </a>
-                            <hr>
-                            <p class="card-text text-muted h6">{{ post.created_on }} <i
-                                    class="far fa-heart"></i>{{ post.number_of_likes }} </p>
+        {% for post in results %}
+        <div class="col-md-4 mt-3">
+            <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                <div class="card mb-4 bg-transparent">
+                    <div class="card-body">
+                        <div class="image-container">
+                            {% if "placeholder" in post.featured_image.url %}
+                            <img class="card-img-top"
+                                src="https://images.pexels.com/photos/1008155/pexels-photo-1008155.jpeg?auto=compress&cs=tinysrgb&w=800"
+                                alt="default image">
+                            {% else %}
+                            <img class="card-img-top" src="{{ post.featured_image.url }}" alt="blog post image">
+                            {% endif %}
                         </div>
+                        <h2 class="card-title social-link mt-2">{{ post.title }}</h2>
+                        <p class="card-text">{{ post.excerpt }}</p>
+                        <a href="{% url 'category' post.category|slugify %}" class="post-link">
+                            <p class="card-text social-link text-muted text-uppercase small">Category:
+                                {{ post.category }}</p>
+                        </a>
+                        <hr>
+                        <p class="card-text text-muted h6">{{ post.created_on }} <i
+                                class="far fa-heart"></i>{{ post.number_of_likes }} </p>
                     </div>
                 </div>
-
-            </div>
-
+            </a>
         </div>
+        {% endfor %}
     </div>
 </div>
-{% endfor %}
-
-
-
 
 {% endblock %}

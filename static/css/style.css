@@ -313,7 +313,9 @@ body.night-mode .navbar {
 }
 
 body.night-mode .navbar-toggler-icon {
-    background-color: #ffffff;
+    background-color: #ffc107;
+    border: #ffc107;
+    border-radius: 25%;
     /* Set navbar toggler icon color to white */
 }
 
