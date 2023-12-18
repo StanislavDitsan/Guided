@@ -2,6 +2,8 @@
 
 {% load static %}
 
+{% load social_share %}
+
 {% block content %}
 
 <!-- Messages -->
@@ -9,7 +11,7 @@
     <div class="row">
         <div class="col">
             {% for message in messages %}
-            <div class="alert {{ message.tags }} alert-dismissible fade show animate__animated animate__fadeIn animate__flipOutX animate__delay-2s"
+            <div class="alert {{ message.tags }} alert-dismissible fade show animate__animated animate__backOutUp animate__delay-2s"
                 id="msg" role="alert">
                 {{ message | safe }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -116,17 +118,47 @@
     </div>
 </section>
 
-
-
+<section>
+    <div class="container">
+        <div class="row text-center d-none d-sm-block">
+            <div class="row mt-5">
+                <div class="col-md-3 col-sm-6 mb-3 mb-md-0">
+                    <div class="mb-3 card py-2 bg-transparent">
+                        <i class="fas fa-globe"></i>
+                        <span class="ms-2 mt-1">Explore a World of Blogs</span>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-3 mb-md-0">
+                    <div class="mb-3 card py-2 bg-transparent">
+                        <i class="fas fa-utensils"></i>
+                        <span class="ms-2">Culinary Gems</span>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-3 mb-md-0">
+                    <div class="mb-3 card py-2 bg-transparent">
+                        <i class="fas fa-hiking"></i>
+                        <span class="ms-2">Travel Adventures</span>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-3 mb-md-0">
+                    <div class="mb-3 card py-2 bg-transparent">
+                        <i class="fas fa-info-circle"></i>
+                        <span class="ms-2">Insights into Everyday Life</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <section class="p-5">
     <div class="container bg-transparent">
         <div class="row">
             <div class="col-md-6">
                 <div class="p-5 rounded text-center">
-                    <form class="d-flex pb-2" method="GET" action="{% url 'search' %}">
-                        <input class="form-control me-2 bg-transparent" type="search" name="q" placeholder="Looking for something? 👀"
-                            aria-label="Search">
+                    <form class="d-flex pb-2 w-100" method="GET" action="{% url 'search' %}">
+                        <input class="form-control me-2 bg-transparent" type="search" name="q"
+                            placeholder="Looking for something? 👀" aria-label="Search">
                         <button class="btn btn-outline-dark" aria-label="Search" type="submit"><i
                                 class="fas fa-search"></i></button>
                     </form>
@@ -168,52 +200,39 @@
     </div>
 </section>
 
-<section class="py-5">
-    <div class="container">
-        <div class="row justify-content-center text-center mb-2 mb-lg-4">
-            <div class="col-12 col-lg-8 col-xxl-7 text-center mx-auto">
-                <span class="text-muted">Showcase</span>
-                <h2 class="display-5 fw-bold">Our Gallery</h2>
-                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta harum ipsum venenatis
-                    metus sem veniam eveniet aperiam suscipit.</p>
-            </div>
-        </div>
-        <div class="row py-3 align-items-center">
-            <div class="col-md-6 mt-md-0 mt-4">
-                <div class="mb-5 mb-lg-3"><img class="img-fluid"
-                        src="https://freefrontend.dev/assets/rectangle-wide.png"></div>
-            </div>
-            <div class="col-md-6 ps-md-5">
-                <div class="mb-5 mb-lg-3">
-                    <h4>A Catchy Title</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente accusantium nulla, sequi
-                        cupiditate exercitationem sit incidunt rerum explicabo. Soluta beatae esse praesentium
-                        exercitationem vero harum pariatur adipisci qui veritatis est!</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta harum ipsum venenatis metus sem
-                        veniam eveniet aperiam suscipit.</p><a class="btn btn-lg btn-primary" href="">View Gallery</a>
+<!-- Footer -->
+<div class="footer" id="footer">
+    <div class="container text-center">
+        <div class="col">
+            <div class="card-body">
+                <p class="text-muted">Share on social media</p>
+                <div class="d-flex justify-content-center">
+                    <div class="p-2 social-link">
+                        {% post_to_twitter "Explore a world of blogs: {{object.title}} Check it out!" object_or_url '<i class="fab fa-twitter fa-2x text-secondary"></i>' %}
+                    </div>
+                    <div class="p-2 social-link">
+                        {% post_to_facebook object_or_url '<i class="fab fa-facebook-f fa-2x text-secondary"></i>' %}
+                    </div>
+                    <div class="p-2 social-link">
+                        {% post_to_reddit "Explore a world of blogs: {{object.title}} Check it out!" object_or_url '<i class="fab fa-reddit-alien fa-2x text-secondary"></i>' %}
+                    </div>
+                    <div class="p-2 social-link">
+                        {% post_to_telegram "Explore a world of blogs: {{object.title}} Check it out!" object_or_url '<i class="fab fa-telegram-plane fa-2x text-secondary"></i>' %}
+                    </div>
+                    <div class="p-2 social-link">
+                        {% post_to_whatsapp object_or_url '<i class="fab fa-whatsapp fa-2x text-secondary"></i>' %}
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <div class="p-2 social-link">
+                        {% add_pinterest_script %}
+                        {% save_to_pinterest object_or_url '<i class="fab fa-pinterest fa-2x text-secondary"></i>' %}
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="row mt-2">
-            <div class="col-lg-3 col-md-6">
-                <div class="mb-3 mb-lg-0"><img alt="" class="img-fluid"
-                        src="https://freefrontend.dev/assets/rectangle-wide.png"></div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="mb-3 mb-lg-0"><img alt="" class="img-fluid"
-                        src="https://freefrontend.dev/assets/rectangle-wide.png"></div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="mb-3 mb-lg-0"><img alt="" class="img-fluid"
-                        src="https://freefrontend.dev/assets/rectangle-wide.png"></div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="mb-3 mb-lg-0"><img alt="" class="img-fluid"
-                        src="https://freefrontend.dev/assets/rectangle-wide.png"></div>
-            </div>
-        </div>
     </div>
-</section>
+</div>
 
 
 {% endblock %}
