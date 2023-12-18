@@ -88,6 +88,10 @@ class UpdatePostView(UpdateView):
         'featured_image', 'category'
     ]
 
+    def get_success_url(self):
+        # Redirect to the post_detail page for the edited post
+        return reverse('post_detail', kwargs={'slug': self.object.slug})
+
 
 class DeletePostView(DeleteView):
     model = Post
